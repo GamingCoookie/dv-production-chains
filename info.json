@@ -1,0 +1,8 @@
+{
+    "Id": "DVProductionChains",
+    "DisplayName": "Production Chains",
+    "Author": "GamingCoookie",
+    "Version": "1.0.0",
+    "AssemblyName": "DVProductionChains.dll",
+    "EntryMethod": "DVProductionChains.DVProductionChains.Load"
+}
