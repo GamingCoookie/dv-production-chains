@@ -125,8 +125,6 @@ if not exist %25BUILDFOLDER%25 (
     <PostBuildEvent>SET BUILDFOLDER="$(SolutionDir)Build"
 xcopy "$(TargetDir)DVProductionChains.dll" %25BUILDFOLDER%25 /Y /I
 xcopy "$(ProjectDir)info.json" %25BUILDFOLDER%25 /Y /I
-
-del /S /Q "C:\Games\SteamGames\steamapps\common\Derail Valley\Mods\DVProductionChains\*"
-xcopy %25BUILDFOLDER%25\* "C:\Games\SteamGames\steamapps\common\Derail Valley\Mods\DVProductionChains"</PostBuildEvent>
+xcopy "$(ProjectDir)recipes.txt" %25BUILDFOLDER%25 /Y /I</PostBuildEvent>
   </PropertyGroup>
 </Project>
