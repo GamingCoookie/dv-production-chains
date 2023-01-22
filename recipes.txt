@@ -1,0 +1,7 @@
+﻿FRS
+() => 1000000*Logs
+FRC
+() => 1000000*Logs
+SW
+1*Logs => 1*Boards
+1*Logs => 1*Plywood
