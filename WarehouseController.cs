@@ -228,6 +228,12 @@ namespace DVProductionChains
             List<string> temp = new List<string>();
             foreach (string line in allRecipes)
             {
+                //Comments are made with #
+                if (line.StartsWith("#"))
+                {
+                    i++;
+                    continue;
+                }
                 //Each block of recipes starts with the yard ID
                 if (line == stationController.stationInfo.YardID && !blockStartReached)
                 {

@@ -1,4 +1,14 @@
-﻿FRS
+﻿# Here are the recipes set for the industries.
+# Every recipe below a station ID belongs to that station.
+# They have the following format:
+# input => output
+# input can be of different forms like "()" but also e.g. "a*cargo + b*cargo"
+# when it's "()" that means the recipe is executed once on game start and fills the warehouse
+# with all the outputs
+# For MF and GF there's also where the input is just "Electronics" or "Tooling" and the output is "()"
+# This means that these stations require a fixed 0.2 of each Electronics and Tooling to produce anything
+# The numbers need to be positive integers.
+FRS
 () => 1000*Logs
 FRC
 () => 1000*Logs
