@@ -83,6 +83,7 @@ namespace DVProductionChains
 
         public float GetAmountOfCargoType(CargoType cargoType)
         {
+            cargoType = Utils.CheckCargoTypeForInternals(cargoType);
             if (!warehouse.inputStorages.TryGetValue(cargoType, out var amount))
             {
                 warehouse.outputStorages.TryGetValue(cargoType, out amount);

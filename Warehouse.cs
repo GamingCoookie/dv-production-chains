@@ -67,14 +67,14 @@ namespace DVProductionChains
             Utils.CheckCargoTypeForInternals(unloadTask.cargoType);
             float prev = inputStorages[unloadTask.cargoType];
             inputStorages[unloadTask.cargoType] += unloadTask.cargoAmount/unloadTask.cars.Count;
-            InputChanged(new StorageChange(prev, inputStorages[unloadTask.cargoType], unloadTask.cargoType));
+            InputChanged?.Invoke(new StorageChange(prev, inputStorages[unloadTask.cargoType], unloadTask.cargoType));
         }
 
         public void TakeFromInputStorage(CargoType cargoType, float amount)
         {
             float prev = inputStorages[cargoType];
             inputStorages[cargoType] -= amount;
-            InputChanged(new StorageChange(prev, inputStorages[cargoType], cargoType));
+            InputChanged?.Invoke(new StorageChange(prev, inputStorages[cargoType], cargoType));
         }
 
         public void AddToOutputStorage(CargoType cargoType, float amount)
@@ -83,7 +83,7 @@ namespace DVProductionChains
             if (outputStorages.ContainsKey(cargoType))
                 prev = outputStorages[cargoType];
             outputStorages[cargoType] += amount;
-            OutputChanged(new StorageChange(prev, outputStorages[cargoType], cargoType));
+            OutputChanged?.Invoke(new StorageChange(prev, outputStorages[cargoType], cargoType));
         }
 
         public void TakeFromOutputStorage(WarehouseTask loadTask)
@@ -91,7 +91,7 @@ namespace DVProductionChains
             Utils.CheckCargoTypeForInternals(loadTask.cargoType);
             float prev = outputStorages[loadTask.cargoType];
             outputStorages[loadTask.cargoType] -= loadTask.cargoAmount/loadTask.cars.Count;
-            OutputChanged(new StorageChange(prev, outputStorages[loadTask.cargoType], loadTask.cargoType));
+            OutputChanged?.Invoke(new StorageChange(prev, outputStorages[loadTask.cargoType], loadTask.cargoType));
         }
     }
 }
