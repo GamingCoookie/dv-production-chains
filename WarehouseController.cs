@@ -97,12 +97,14 @@ namespace DVProductionChains
             return new [] { warehouse.inputStorages.Keys.ToArray(), warehouse.outputStorages.Keys.ToArray() };
         }
 
-        public void OnShuntingUnloadCompleted(Job job)
+        public void OnShuntingUnloadCompleted(Job _)
         {
-            WarehouseTask wt = (WarehouseTask)job.tasks.Find(t => t.InstanceTaskType == TaskType.Warehouse);
-            if (wt.cargoAmount > 0f)
+            foreach (CargoType cargoType in warehouse.inputStorages.Keys)
             {
-                List<int> recipeIndices = cargoTypeToApplicableRecipe[wt.cargoType];
+                float amount = warehouse.inputStorages[cargoType];
+                if (amount == 0)
+                    continue;
+                List<int> recipeIndices = cargoTypeToApplicableRecipe[cargoType];
                 System.Random rnd = new System.Random();
                 for (int i = 0; i < recipeIndices.Count; i++)
                 {
