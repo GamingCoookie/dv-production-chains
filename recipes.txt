@@ -1,7 +1,88 @@
 ﻿FRS
-() => 1000000*Logs
+() => 1000*Logs
 FRC
-() => 1000000*Logs
+() => 1000*Logs
 SW
 1*Logs => 1*Boards
 1*Logs => 1*Plywood
+OWC
+() => 1000*Crude Oil + 1000*Methane
+OWN
+() => 1000*Crude Oil + 1000*Methane
+IME
+() => 4*Iron Ore
+1*Excavators => 20*Iron Ore
+IMW
+() => 4*Iron Ore
+1*Excavators => 20*Iron Ore
+CM
+() => 4*Coal
+1*Excavators => 20*Coal
+FM
+() => 30*Farm Produce
+1*Tractors => 120*Farm Produce
+SM
+2*Coal + 2*Iron Ore + 1*Cryo Oxygen + 1*Argon => 2*Steel Parts
+2*Scrap Metal + 1*Coal + 1*Argon => 4*Steel Parts
+FF
+4*Farm Produce + 1*Nitrogen => 4*Processed Food
+2*Farm Produce => 1*Processed Food
+1*Farm Produce => 1*Alcohol
+5*Imported New Cars => 1*Scrap Metal
+3*New Cars => 1*Scrap Metal
+5*Tooling => 1*Scrap Metal
+5*Electronics => 1*Scrap Metal
+10*Furniture => 1*Scrap Metal
+GF
+1*Cryo Hydrogen + 1*Ammonia + 1*Sodium Hydroxide + 1*Methane + 1*Alcohol => 5*Chemicals
+1*Boards + 2*Plywood => 3*Furniture
+Electronics => ()
+Tooling => ()
+1*Chemicals => 1*Apparel
+1*Steel Parts => 5*Electronics
+1*Steel Parts + 1*Boards => 1*Tooling
+1*Steel Parts => 1*Pipes
+5*Imported New Cars => 1*Scrap Metal
+3*New Cars => 1*Scrap Metal
+10*Furniture => 1*Scrap Metal
+MF
+2*Chemicals + 2*Methane + 1*Steel Parts => 1*Ammunition
+1*Military Supplies + 3*Steel Parts + 1*Acetylene + 1*Chemicals => 1*Tanks
+1*Steel Parts + 1*Chemicals + 1*Gasoline + 1*Cryo Oxygen => 1*New Cars
+1*Steel Parts + 1*Chemicals + 1*Diesel => 1*Tractors
+2*Steel Parts + 1*Chemicals + 1*Diesel => 1*Excavators
+Electronics => ()
+Tooling => ()
+5*Imported New Cars => 1*Scrap Metal
+3*New Cars => 1*Scrap Metal
+5*Tooling => 1*Scrap Metal
+5*Electronics => 1*Scrap Metal
+10*Furniture => 1*Scrap Metal
+MB
+1*Spent Nuclear Fuel + 1*Military Trucks + 1*Ammunition => 1*Biohazard
+HB
+4*Crude Oil => 1*Diesel + 1*Gasoline
+2*Methane => 1*Ammonia
+2*Tanks => 1*Spent Nuclear Fuel
+2*Tractors => 1*Military Trucks
+2*Excavators => 1*Ammunition
+2*Crude Oil => 1*Military Parts
+2*Processed Food => 1*Tooling
+2*Processed Food => 1*Electronics
+3*Alcohol => 1*Argon + 1*Cryo Oxygen + 1*Nitrogen
+2*Pipes => 1*Medicine
+2*Steel Parts => 1*Cryo Hydrogen
+2*Electronics => 1*Imported New Cars
+2*Furniture => 1*Sodium Hydroxide
+2*Apparel => 1*Chemicals
+1*Pipes => 1*Apparel
+3*New Cars => 1*Scrap Metal
+5*Tooling => 1*Scrap Metal
+5*Electronics => 1*Scrap Metal
+10*Furniture => 1*Scrap Metal
+CSW
+5*Imported New Cars => 1*Scrap Metal
+3*New Cars => 1*Scrap Metal
+5*Tooling => 1*Scrap Metal
+5*Electronics => 1*Scrap Metal
+10*Furniture => 1*Scrap Metal

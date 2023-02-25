@@ -3,7 +3,8 @@
     "DisplayName": "Production Chains",
     "Author": "GamingCoookie",
     "Version": "1.0.0",
-    "Requirements": ["DVOwnership"],
+    "Requirements": [ "DVOwnership" ],
+    "LoadAfter": [ "DVOwnership" ],
     "AssemblyName": "DVProductionChains.dll",
     "EntryMethod": "DVProductionChains.DVProductionChains.Load"
 }

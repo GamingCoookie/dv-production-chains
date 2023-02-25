@@ -93,6 +93,7 @@
     <Compile Include="Patches\StationController_Patches.cs" />
     <Compile Include="Patches\WarehouseMachine_Patches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaveManager.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="Warehouse.cs" />
     <Compile Include="WarehouseController.cs" />

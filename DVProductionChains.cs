@@ -17,6 +17,7 @@ namespace DVProductionChains
     {
         public static ModEntry mod;
         private static Harmony harmony;
+        public static Version Version => mod.Version;
         public static List<StationController> stationControllers = new List<StationController>();
 
         static bool Load(ModEntry modEntry)

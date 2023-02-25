@@ -39,7 +39,7 @@ namespace DVProductionChains
         private CargoType[] inputCargoTypes;
         private CargoType[] outputCargoTypes;
         private int selectedCargoTypeIndex = 0;
-        private bool indexingOutput = false;
+        private bool indexingOutput = true;
         private WarehouseController warehouseController;
 
         private State state;
@@ -204,7 +204,8 @@ namespace DVProductionChains
             else if (selectedCargoTypeIndex >= outputCargoTypes.Length && indexingOutput)
             {
                 selectedCargoTypeIndex = 0;
-                indexingOutput = false;
+                if (inputCargoTypes.Length > 0)
+                    indexingOutput = false;
             }
         }
 
@@ -219,8 +220,14 @@ namespace DVProductionChains
             }
             else if (selectedCargoTypeIndex < 0 && indexingOutput)
             {
-                selectedCargoTypeIndex = inputCargoTypes.Length - 1;
-                indexingOutput = false;
+
+                if (inputCargoTypes.Length > 0)
+                {
+                    selectedCargoTypeIndex = inputCargoTypes.Length - 1;
+                    indexingOutput = false;
+                }
+                else
+                    selectedCargoTypeIndex = outputCargoTypes.Length - 1;
             }
         }
 
