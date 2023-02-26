@@ -22,8 +22,6 @@ namespace DVProductionChains.Patches
 
         public static bool GenerateLoadChainJobForCars_Patch(ref List<List<Car>> carSetsForJob, CargoGroup cargoGroup, StationController originController)
         {
-            //Make exception for source industries
-
             DVProductionChains.Log("GenerateLoadChainJobForCars Prefix");
             WarehouseController warehouseController = originController.GetComponent<WarehouseController>();
             List<CargoType> cargoTypes = cargoGroup.cargoTypes;
