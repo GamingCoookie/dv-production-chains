@@ -152,7 +152,7 @@ namespace DVProductionChains
             else if (sides[0] != "()")
             {
                 string[] inputSide = sides[0].Split(new string[] { " + " }, StringSplitOptions.None);
-                int numberOfInputsUnfulfilled = inputSide.Length - consumesElectronics.CompareTo(true) - consumesTools.CompareTo(true);
+                int numberOfInputsUnfulfilled = inputSide.Length + consumesElectronics.CompareTo(false) + consumesTools.CompareTo(false);
                 Dictionary<CargoType, float> inputCargoNeeds = new Dictionary<CargoType, float>();
                 foreach (string inputCargo in inputSide)
                 {
@@ -172,6 +172,8 @@ namespace DVProductionChains
                         if (warehouse.inputStorages[cargoType] >= inputCargoNeeds[cargoType]) { numberOfInputsUnfulfilled--; }
                     }
                 }
+                if (consumesElectronics && warehouse.inputStorages[CargoType.ElectronicsTraeg] >= 0.2f) { numberOfInputsUnfulfilled--; }
+                if (consumesTools && warehouse.inputStorages[CargoType.ToolsTraeg] >= 0.2f) { numberOfInputsUnfulfilled--; }
                 //when the industry has enough materials, then produce thing
                 if (numberOfInputsUnfulfilled == 0)
                 {
@@ -192,7 +194,7 @@ namespace DVProductionChains
                     }
                     if (consumesElectronics) { quotients.Add(warehouse.inputStorages[CargoType.ElectronicsTraeg] / 0.2f); }
                     if (consumesTools) { quotients.Add(warehouse.inputStorages[CargoType.ToolsTraeg] / 0.2f); }
-                    float ratio = quotients.Min() * 0.5f;
+                    float ratio = quotients.Min();
                     foreach (CargoType input in inputCargoNeeds.Keys)
                     {
                         warehouse.TakeFromInputStorage(input, inputCargoNeeds[input] * ratio);
@@ -271,19 +273,19 @@ namespace DVProductionChains
                 {
                     JObject obj = (JObject)datum;
                     string yardID = obj.GetString(ID_SAVE_KEY);
-                    DVProductionChains.Log("Loading data for station " + yardID);
+                    //DVProductionChains.Log("Loading data for station " + yardID);
                     yield return new WaitUntil(() => allWarehouseControllers.Count == 18);
                     WarehouseController controller = allWarehouseControllers.Find(c => c.yardID == yardID);
                     CargoType[] types = controller.warehouse.inputStorages.Keys.ToArray();
                     for (int i = 0; i < controller.warehouse.inputStorages.Count; i++) 
                     {
-                        DVProductionChains.Log($"I{i}: " + Utils.GetCargoName(types[i]) + " - " + obj.GetFloat($"I{i}").ToString());
+                        //DVProductionChains.Log($"I{i}: " + Utils.GetCargoName(types[i]) + " - " + obj.GetFloat($"I{i}").ToString());
                         controller.warehouse.inputStorages[types[i]] = (float)obj.GetFloat($"I{i}");
                     }
                     types = controller.warehouse.outputStorages.Keys.ToArray();
                     for (int i = 0; i < controller.warehouse.outputStorages.Count; i++)
                     {
-                        DVProductionChains.Log($"O{i}: " + Utils.GetCargoName(types[i]) + " - " + obj.GetFloat($"O{i}").ToString());
+                        //DVProductionChains.Log($"O{i}: " + Utils.GetCargoName(types[i]) + " - " + obj.GetFloat($"O{i}").ToString());
                         controller.warehouse.outputStorages[types[i]] = (float)obj.GetFloat($"O{i}");
                     }
                 }
@@ -298,7 +300,7 @@ namespace DVProductionChains
             {
                 JObject jObject = new JObject();
                 jObject.SetString(ID_SAVE_KEY, controller.yardID);
-                DVProductionChains.Log("saving warehouse of " + controller.yardID);
+                //DVProductionChains.Log("saving warehouse of " + controller.yardID);
                 /** I don't need this, do I?
                 List<string> types = new List<string>();
                 foreach (CargoType type in controller.warehouse.inputStorages.Keys)
@@ -311,7 +313,7 @@ namespace DVProductionChains
                 int i = 0;
                 foreach (float amount in controller.warehouse.inputStorages.Values)
                 {
-                    DVProductionChains.Log("Saving I" + i + " with an amount of " + amount);
+                    //DVProductionChains.Log("Saving I" + i + " with an amount of " + amount);
                     jObject.SetFloat($"I{i}", amount);
                     i++;
                 }
@@ -326,7 +328,7 @@ namespace DVProductionChains
                 i = 0;
                 foreach (float amount in controller.warehouse.outputStorages.Values)
                 {
-                    DVProductionChains.Log("Saving O" + i + " with an amount of " + amount);
+                    //DVProductionChains.Log("Saving O" + i + " with an amount of " + amount);
                     jObject.SetFloat($"O{i}", amount);
                     i++;
                 }
