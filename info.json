@@ -2,7 +2,7 @@
     "Id": "DVProductionChains",
     "DisplayName": "Production Chains",
     "Author": "GamingCoookie",
-    "Version": "0.1.2",
+    "Version": "0.1.3",
     "Requirements": [ "DVOwnership" ],
     "LoadAfter": [ "DVOwnership" ],
     "AssemblyName": "DVProductionChains.dll",
